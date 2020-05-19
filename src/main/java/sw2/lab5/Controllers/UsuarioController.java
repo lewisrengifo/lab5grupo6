@@ -52,4 +52,9 @@ public class UsuarioController {
         }
         return "user/list";
     }
+
+    @GetMapping("/perfil")
+    public String asd(){
+        return "user/perfilusuario";
+    }
 }

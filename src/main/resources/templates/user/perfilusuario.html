@@ -18,26 +18,22 @@
                                 PERFIL USUARIO</h2>
                             <br>
                             <hr/>
-                            <form method="post" th:action="@{'/categoria/guardar'}">
+                            <form method="post" th:action="@{'/user/editarPerfil'}">
                                 <input type="hidden"/>
                                 <div class="form-group">
                                     <label for="nombrecategoria">Nombre usuario</label>
-                                    <input type="text" class="form-control" th:field="*{nombrecategoria}" style="width: 25%">
-                                    <div class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{nombrecategoria}"></div>
+                                    <input type="text" class="form-control" th:text="${session.usuario.getFirstname()}" style="width: 25%">
                                 </div>
                                 <div class="form-group">
                                     <label for="codigocategoria">apellido</label>
-                                    <input type="text" class="form-control" th:text="${session}" style="width: 25%">
-                                    <div class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{codigocategoria}"></div>
+                                    <input type="text" class="form-control" th:text="${session.usuario.getLastname()}" style="width: 25%">
                                 </div>
                                 <div class="form-group">
                                     <label for="codigocategoria">email</label>
-                                    <input type="text" class="form-control" th:field="*{codigocategoria}" style="width: 25%">
-                                    <div class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{codigocategoria}"></div>
+                                    <input type="text" class="form-control" th:text="${session.usuario.getEmail()}" style="width: 25%">
                                 </div>
-                                <a th:href="@{'/categoria'}" class="btn btn-danger">Cancelar</a>
-                                <button type="submit" class="btn btn-primary"
-                                        th:text="${categoria.idcategoria == 0? 'Registrar' : 'Actualizar'}">
+                                <a th:href="@{'/user/list'}" class="btn btn-danger">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">actualizar
                                 </button>
                             </form>
                         </div>
