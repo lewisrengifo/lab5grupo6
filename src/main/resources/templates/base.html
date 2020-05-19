@@ -18,14 +18,17 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <a class="navbar-brand" href="#">Blog Telecom</a>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
+            <li class="nav-item" >
+                <a class="nav-link" href="#">listar post</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('admin')">
+                <a class="nav-link" href="#">listar usuarios</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('admin','user')">
+                <a class="nav-link" href="#">ver mi perfil</a>
+            </li>
+            <li class="nav-item"  sec:authorize="hasAnyAuthority('admin','user')">
+                <a class="nav-link" href="#">Crear post</a>
             </li>
         </ul>
 
