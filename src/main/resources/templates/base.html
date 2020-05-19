@@ -37,7 +37,7 @@
                 <a th:href="@{/loginForm}" class="btn btn-info">Iniciar Sesión</a>
             </div>
             <div id="usuarioAutenticado" sec:authorize="isAuthenticated()" >
-                <span th:text="|Bienvenido ${session.usuario.getNombre()} ${session.usuario.getApellido()}|" >Bienvenido ___</span>
+                <span th:text="|Bienvenido ${session.usuario.getNombre()} ${session.usuario.getApellido()} ${session.rol}|" >Bienvenido ___</span>
                 <a class="btn btn-info">Cerrar Sesión</a>
             </div>
         </div>
