@@ -13,6 +13,24 @@ public class Post {
     private Usuario user;
     private String title;
     private String content;
+    private String summary;
+    private boolean published;
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
 
     public int getIdPost() {
         return idPost;

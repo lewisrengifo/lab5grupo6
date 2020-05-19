@@ -22,10 +22,10 @@ public class PostController {
 
     @GetMapping("/post/create")
     public String nuevopost() {
-        return "/post/create";
+        return "/post/form";
     }
 
-    @GetMapping("/post/edit")
+    @GetMapping("/edit")
     public String editpost(Model model, @ModelAttribute("post") Post post, @RequestParam("id") int id) {
         Optional<Post> optionalPost = postRepository.findById(id);
         if (optionalPost.isPresent()) {
