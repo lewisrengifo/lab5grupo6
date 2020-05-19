@@ -19,25 +19,25 @@
         <ul class="navbar-nav">
             <a class="navbar-brand" href="#">Blog Telecom</a>
             <li class="nav-item" >
-                <a class="nav-link" href="#">listar post</a>
+                <a class="nav-link"  th:href="@{'/post'}">listar post</a>
             </li>
             <li class="nav-item" sec:authorize="hasAnyAuthority('admin')">
-                <a class="nav-link" href="#">listar usuarios</a>
+                <a class="nav-link" th:href="@{'/user/list'}">listar usuarios</a>
             </li>
             <li class="nav-item" sec:authorize="hasAnyAuthority('admin','user')">
-                <a class="nav-link" href="#">ver mi perfil</a>
+                <a class="nav-link" th:href="@{'/user'}">ver mi perfil</a>
             </li>
             <li class="nav-item"  sec:authorize="hasAnyAuthority('admin','user')">
-                <a class="nav-link" href="#">Crear post</a>
+                <a class="nav-link" th:href="@{'/post/create'}">Crear post</a>
             </li>
         </ul>
 
         <div class="d-inline-flex">
-            <div id="usuarioAnonimo">
-                <a class="btn btn-info">Iniciar Sesión</a>
+            <div sec:authorize="isAnonymous()" id="usuarioAnonimo">
+                <a th:href="@{/loginForm}" class="btn btn-info">Iniciar Sesión</a>
             </div>
-            <div id="usuarioAutenticado">
-                <span>Bienvenido ___</span>
+            <div id="usuarioAutenticado" sec:authorize="isAuthenticated()" >
+                <span th:text="|Bienvenido ${session.usuario.getNombre()} ${session.usuario.getApellido()}|" >Bienvenido ___</span>
                 <a class="btn btn-info">Cerrar Sesión</a>
             </div>
         </div>
