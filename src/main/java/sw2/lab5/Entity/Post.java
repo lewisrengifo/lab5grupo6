@@ -3,56 +3,39 @@ package sw2.lab5.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "role")
+@Table(name = "post")
 public class Post {
     @Id
-    private int id_post;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idPost;
     @ManyToOne
     @JoinColumn(name = "author_id")
-    private Usuario author_id;
-    private String tittle;
-    private String summary;
-    private boolean published;
+    private Usuario user;
+    private String title;
     private String content;
 
-    public int getId_post() {
-        return id_post;
+    public int getIdPost() {
+        return idPost;
     }
 
-    public void setId_post(int id_post) {
-        this.id_post = id_post;
+    public void setIdPost(int idPost) {
+        this.idPost = idPost;
     }
 
-    public Usuario getAuthor_id() {
-        return author_id;
+    public Usuario getUser() {
+        return user;
     }
 
-    public void setAuthor_id(Usuario author_id) {
-        this.author_id = author_id;
+    public void setUser(Usuario user) {
+        this.user = user;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public boolean isPublished() {
-        return published;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
