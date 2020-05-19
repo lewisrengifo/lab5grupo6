@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="base.html :: head(titulo='perfil usuario')" ></head>
+
+<body>
+    <nav th:replace="bases.html :: navbar"></nav>
+
+    <div id="page-wrapper">
+        <div id="page-inner">
+
+            <div class="row">
+                <div  class="col-md-8">
+                    <div class="card">
+                        <div class="container">
+                            <h2>
+                                PERFIL USUARIO</h2>
+                            <br>
+                            <hr/>
+                            <form method="post" th:action="@{'/categoria/guardar'}">
+                                <input type="hidden"/>
+                                <div class="form-group">
+                                    <label for="nombrecategoria">Nombre usuario</label>
+                                    <input type="text" class="form-control" th:field="*{nombrecategoria}" style="width: 25%">
+                                    <div class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{nombrecategoria}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="codigocategoria">apellido</label>
+                                    <input type="text" class="form-control" th:text="${session}" style="width: 25%">
+                                    <div class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{codigocategoria}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="codigocategoria">email</label>
+                                    <input type="text" class="form-control" th:field="*{codigocategoria}" style="width: 25%">
+                                    <div class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{codigocategoria}"></div>
+                                </div>
+                                <a th:href="@{'/categoria'}" class="btn btn-danger">Cancelar</a>
+                                <button type="submit" class="btn btn-primary"
+                                        th:text="${categoria.idcategoria == 0? 'Registrar' : 'Actualizar'}">
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
